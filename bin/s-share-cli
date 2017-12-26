@@ -1,2 +1,2 @@
-#!/bin/bash
-node ../app $1
+#!/usr/bin/env node
+require('../app')
