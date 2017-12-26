@@ -1,0 +1,44 @@
+body {
+	padding: 20px;
+}
+
+#header {
+	display: flex;
+}
+
+#navigation {
+	width: 100%
+	/*flex-grow: 2;*/
+}
+
+#controls {
+	width: 120px;
+}
+
+.glyphicon {
+	width: 25px;
+	padding: 5px 0;
+}
+
+.text-file {
+	color: #9E9E9E;
+}
+
+.glyphicon {
+	cursor: pointer;
+}
+
+.click {
+	cursor: pointer;
+}
+.row-control {
+	width: 100px;
+}
+
+.disM {
+	pointer-events: none
+}
+
+.dropdown-toggle {
+	cursor: pointer;
+}

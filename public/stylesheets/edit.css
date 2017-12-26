@@ -1,0 +1,51 @@
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.CodeMirror {
+  width: 100vw;
+  height: calc(100vh - 50px)
+}
+
+.CodeMirror-vscrollbar {
+  width: 12px;
+  margin-right: -3px;
+}
+
+#header {
+  background: rgb(32, 32, 32);
+  width: 100%;
+  height: 30px;
+  color: #a0a0a0;
+  line-height: 30px;
+  padding: 0 10px;
+}
+
+#save {
+  margin: 4px 20px 4px 0;
+  padding: 0 15px;
+  right: 10px;
+}
+
+#footer {
+  background: rgba(0, 0, 0, 0.93);
+  width: 100%;
+  height: 20px;
+  color: #a0a0a0;
+  font-size: 12px;
+  line-height: 20px;
+  padding: 0 10px;
+}
+
+#footer > div {
+  display: inline-block;
+  padding: 0 5px;
+}
+
+#mode {
+  float: right;
+}

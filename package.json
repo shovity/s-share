@@ -1,0 +1,20 @@
+{
+  "name": "s-share",
+  "version": "1.0.0",
+  "description": "Share server creator",
+  "main": "app.js",
+  "private": true,
+  "author": "Huong Nguyen (shovity@gmail.com)",
+  "scripts": {
+    "start": "node app",
+    "dev": "nodemon app 'public/share' --ignore public/"
+  },
+  "bin": "./bin/s-share-cli",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.3",
+    "pug": "^2.0.0-rc.2",
+    "qrcode": "^0.8.2"
+  }
+}

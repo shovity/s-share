@@ -1,0 +1,99 @@
+extends master
+
+block head
+	link(rel='stylesheet' href='/stylesheets/home.css')
+
+block body
+	.col-md-6.col-md-offset-3
+		.panel.panel-default
+			.panel-heading#header
+				- var paths = join('/', uri, '/').split('/')
+				- var back = '/'	
+				
+				#navigation
+					a(href='/share')
+						span.glyphicon.glyphicon-hdd
+					each p, i in paths
+						- var length = paths.length
+						- var path = '/share' + paths.slice(0, i+1).join('/')
+						- var name = paths[i]
+						- if (i == 0 || i == length-1) continue
+						-	if (i == length-3) back = path
+
+						a(href=path)= name 
+						b /
+
+				#controls
+					.dropdown
+						a.text-success.pull-right.dropdown-toggle(data-toggle='dropdown')
+							span.glyphicon.glyphicon-plus
+						ul.dropdown-menu
+							li
+								.input-group
+									input#fileName.form-control
+									span.input-group-btn
+										button#newFile.btn.btn-info New file
+										button#newFolder.btn.btn-primary New folder
+											
+							li
+								.input-group
+									input#file.form-control(type='file' name='file')
+									span.input-group-btn
+										button#upload.btn.btn-primary Upload
+									
+
+					a.text-info.pull-right(href=back)
+						span.glyphicon.glyphicon-chevron-left
+
+			table.table.table-hover
+				tbody
+					th Type
+					th Name
+					th
+					- files.sort((f1, f2) => f2.stat.isDirectory() - f1.stat.isDirectory())
+					each file in files
+						- var isDir = file.stat.isDirectory()
+						- var gFile = 'glyphicon glyphicon-folder-open text-primary'
+						- var gFolder = 'glyphicon glyphicon-file text-file'
+						- var gGoto = 'glyphicon glyphicon-chevron-right pull-right text-success'
+						- var gTrash = 'glyphicon glyphicon-trash text-danger pull-right'
+						- var gEdit = 'glyphicon glyphicon-edit pull-right'
+						- var gSave = 'glyphicon glyphicon-save pull-right'
+
+						tr(uri = join(uri, file.name), fileName=file.name, fileType = isDir? 'd' : 'f')
+
+							//- Icon
+							td.click
+								span.disM(class = isDir? gFile : gFolder)
+							
+							//- Name
+							td.click= file.name
+								
+							//- Controls
+							td.row-control
+								//- Trash
+								span.remove(class=gTrash data-toggle='tooltip' title='Remove ' + file.name)
+
+								//- Edit
+								.dropdown
+									a.dropdown-toggle(data-toggle='dropdown')
+										span(class=gEdit data-toggle='tooltip' title='Edit ' + file.name)
+									ul.dropdown-menu
+										li
+											a(href= join('/rename', uri, file.name)) Rename
+										if (!isDir)
+											li
+												a(href= join('/edit', uri, file.name)) Edit
+								
+
+								if file.stat.isDirectory()
+									a(href='/share' + join(uri, file.name))
+										span(class=gGoto data-toggle='tooltip' title='Go to ' + file.name)
+								else
+									a(href= '/download' + join(uri, file.name))
+										span(class=gSave data-toggle='tooltip' title='Download ' + file.name)
+	//- export files
+	script var files = '#{JSON.stringify(files)}', uri = '#{uri}'
+	
+block footer
+	script(src='/javascripts/home.js')

@@ -1,0 +1,45 @@
+extends master
+
+block head
+	//- mirror css
+	link(rel='stylesheet' href='/codemirror/lib/codemirror.css')
+	//- mirror theme
+	link(rel='stylesheet' href='/codemirror/theme/ambiance.css')
+	//- mirror addon
+	link(rel='stylesheet' href='/codemirror/addon/hint/show-hint.css')
+	//- my css
+	link(rel='stylesheet' href='/stylesheets/edit.css')
+
+block body
+	#header
+		button#save.btn.btn-success save
+		#fileName= fileName
+		
+	textarea#textarea= content
+	#footer
+		#fullPath= uri
+		#position [0:0]
+		#mode= modeInfo.name
+	
+block footer
+	- var mode = modeInfo.mode
+	//- mirror js
+	script(src='/codemirror/lib/codemirror.js')
+	//- mirror mode
+	script(src='/codemirror/mode/meta.js')
+	script(src=`/codemirror/mode/htmlmixed/htmlmixed.js`)
+	script(src=`/codemirror/mode/xml/xml.js`)
+	script(src=`/codemirror/mode/css/css.js`)
+	script(src=`/codemirror/mode/javascript/javascript.js`)
+	script(src=`/codemirror/mode/clike/clike.js`)
+	script(src=`/codemirror/mode/${mode}/${mode}.js`)
+	
+	//- mirror addon
+	script(src='/codemirror/addon/hint/show-hint.js')
+	script(src=`/codemirror/addon/hint/${mode}-hint.js`)
+		
+	//- mirror keymap
+	script(src='/codemirror/keymap/sublime.js')
+	//- my js
+	script var mode = '#{mode}', uri = '#{uri}'
+	script(src='/javascripts/edit.js')

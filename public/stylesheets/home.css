@@ -1,0 +1,13 @@
+#controls .dropdown-menu {
+  padding: 20px;
+  width: 400px;
+  margin-left: -300px;
+}
+
+#controls .dropdown-menu .btn {
+  width: 90px;
+}
+
+#controls .dropdown-menu .input-group {
+  margin: 5px 0;
+}

@@ -1,0 +1,9 @@
+FORM 1: MAIN:
+	- Chart hiển thị(line, tooltip).
+	- Hai combo box để chọn tháng cần xem, combo box 2 có lựa chọn null để xem 1 tháng thôi + button hiển thị.
+	- Textbox tên, giá trị, ngày tháng(default là ngày hiện tại), group 3 radio button chọn định kì + button thêm.
+	- Button Quản lý để vào form quản lý (popup form mới lên cũng được).
+
+FORM 2: MANAGE
+	- ListView (tên, g á trì, thời gian, loại định kì)
+	- Hệ thống nút và field thêm sửa xóa như kiểm tra trên lớp.
