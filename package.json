@@ -1,15 +1,13 @@
 {
-  "name": "s-share",
+  "name": "sare",
   "version": "1.0.0",
-  "description": "Share server creator",
+  "description": "Usefull and simple cli tool for share file cross flatform",
   "main": "app.js",
-  "private": true,
   "author": "Huong Nguyen (shovity@gmail.com)",
   "scripts": {
-    "start": "node app",
-    "dev": "nodemon app 'public/share' --ignore public/"
+    "start": "node app"
   },
-  "bin": "./bin/s-share-cli",
+  "bin": "./bin/sare",
   "dependencies": {
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
