@@ -12,7 +12,7 @@
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.15.3",
-    "pug": "^2.0.0-rc.2",
+    "pug": "^3.0.1",
     "qrcode": "^0.8.2"
   }
 }
